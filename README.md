@@ -60,4 +60,10 @@ Install library & jalankan aplikasi:Bashnpm install
 npm run dev
 ✅ Akses aplikasi di: http://localhost:5173⚙️
 
-🔌 API DocumentationBackend menyediakan 3 endpoint utama:MethodEndpointDeskripsiPOST/api/analyze-reviewKirim data {product_name, review_text} untuk dianalisis AI.GET/api/reviewsAmbil semua riwayat review dari database.OPTIONS/api/analyze-reviewCek izin akses (CORS).
+## 🔌 API Documentation
+
+| Method | Endpoint | Deskripsi |
+| :--- | :--- | :--- |
+| `POST` | `/api/analyze-review` | Kirim data `{product_name, review_text}` untuk dianalisis AI. |
+| `GET` | `/api/reviews` | Ambil semua riwayat review dari database. |
+| `OPTIONS` | `/api/analyze-review` | Cek izin akses (CORS). |
