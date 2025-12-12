@@ -49,22 +49,23 @@ function App() {
   }
 
   return (
-    // Dashboard Besar
+    // Dashboard Besar Dark Mode
     <div className="dashboard-container">
       
       {/* --- KOLOM KIRI: SIDEBAR FORM --- */}
       <div className="sidebar">
         <div className="logo-area">
-          <h1>ReviewAnalyzer AI</h1>
+          <h1>⚡ Review.AI</h1>
+          <p style={{color: '#64748b', fontSize: '0.8rem', marginTop: '5px'}}>Premium Analytics Dashboard</p>
         </div>
 
         <form onSubmit={handleSubmit} className="form-wrapper">
           <div>
-            <label className="input-label">Nama Produk</label>
+            <label className="input-label">Product Name</label>
             <input 
               className="styled-input"
               type="text" 
-              placeholder="Contoh: iPhone 15 Pro" 
+              placeholder="e.g. RTX 4090 Gaming OC" 
               value={productName}
               onChange={(e) => setProductName(e.target.value)}
               required
@@ -72,10 +73,10 @@ function App() {
           </div>
 
           <div>
-            <label className="input-label">Ulasan Pengguna</label>
+            <label className="input-label">User Review</label>
             <textarea 
               className="styled-input"
-              placeholder="Paste review di sini..." 
+              placeholder="Paste raw text analysis here..." 
               value={reviewText}
               onChange={(e) => setReviewText(e.target.value)}
               required
@@ -83,7 +84,7 @@ function App() {
           </div>
 
           <button className="btn-submit" disabled={loading}>
-            {loading ? 'Sedang Menganalisa...' : '🚀 Analisa Sekarang'}
+            {loading ? 'PROCESSING...' : 'INITIALIZE ANALYSIS'}
           </button>
         </form>
       </div>
@@ -91,22 +92,31 @@ function App() {
       {/* --- KOLOM KANAN: HASIL UTAMA --- */}
       <div className="main-content">
         <div className="content-header">
-          <h2>Riwayat Analisis</h2>
-          <span style={{color: '#888', fontSize: '0.9rem'}}>Total: {reviews.length} Review</span>
+          <div>
+            <h2>Analysis Logs</h2>
+            <span style={{color: '#64748b', fontSize: '0.9rem', display: 'block', marginTop: '5px'}}>
+              Real-time Sentiment Processing
+            </span>
+          </div>
+          <div style={{background: '#1e293b', padding: '10px 20px', borderRadius: '8px', border: '1px solid #334155'}}>
+            <span style={{color: '#94a3b8', fontSize: '0.85rem'}}>TOTAL SCANS: </span>
+            <strong style={{color: 'white', fontSize: '1.2rem'}}>{reviews.length}</strong>
+          </div>
         </div>
 
         {reviews.length === 0 ? (
           <div style={{
             textAlign: 'center', 
-            marginTop: '100px', 
-            color: '#aaa',
+            marginTop: '150px', 
+            color: '#475569',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            gap: '15px'
+            gap: '20px'
           }}>
-            <span style={{fontSize: '3rem'}}>📊</span>
-            <p>Belum ada data. Silakan input di sebelah kiri.</p>
+            <div style={{fontSize: '4rem', opacity: 0.5}}>📡</div>
+            <p style={{fontSize: '1.1rem', fontWeight: 500}}>No Data Stream Detected</p>
+            <p style={{fontSize: '0.9rem'}}>Initiate a new scan from the control panel.</p>
           </div>
         ) : (
           <div className="review-grid">
@@ -123,12 +133,12 @@ function App() {
                 <p className="review-body">"{rev.review_text}"</p>
 
                 <div className="ai-insights">
-                  <span className="ai-label">✨ AI Key Points</span>
+                  <span className="ai-label">🤖 INTELLIGENCE EXTRACTION</span>
                   <ul>
                     {rev.key_points && rev.key_points.length > 0 ? (
                       rev.key_points.map((p, i) => <li key={i}>{p}</li>)
                     ) : (
-                      <li>Tidak ada poin penting.</li>
+                      <li>No key vectors identified.</li>
                     )}
                   </ul>
                 </div>

@@ -7,7 +7,7 @@ from models import Review
 from database import DBSession
 
 # --- AREA API KEY ---
-# Masukkan key jika punya. Jika tidak, biarkan kosong ("").
+# Biarkan kosong jika ingin pakai mode Mock/Dummy
 HF_TOKEN = "" 
 GEMINI_API_KEY = ""
 # --------------------
@@ -28,7 +28,6 @@ def call_huggingface_sentiment(text):
     try:
         response = requests.post(HF_API_URL, headers=headers, json={"inputs": text})
         data = response.json()
-        # Ambil score tertinggi
         if isinstance(data, list) and len(data) > 0:
             best = max(data[0], key=lambda x: x['score'])
             return {'label': best['label'], 'score': best['score']}

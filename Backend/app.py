@@ -1,10 +1,10 @@
 from wsgiref.simple_server import make_server
 from pyramid.config import Configurator
 from pyramid.events import NewRequest
-from pyramid.response import Response  # <--- Tambahan Penting
+from pyramid.response import Response 
 from database import Base, engine, DBSession
 import transaction
-import models
+import models # PENTING: Agar tabel dibuat otomatis
 
 # --- 1. Fungsi Menambahkan Header CORS (Izin Akses) ---
 def add_cors_headers_response_callback(event):
@@ -23,7 +23,7 @@ def handle_options_request(context, request):
     return Response() # Balas "OK" kosong saja agar browser senang
 
 def main():
-    # Buat tabel database otomatis
+    # Buat tabel database otomatis (Berjalan karena ada import models di atas)
     Base.metadata.create_all(engine)
 
     with Configurator() as config:
@@ -34,10 +34,10 @@ def main():
         config.add_route('analyze_review', '/api/analyze-review')
         config.add_route('get_reviews', '/api/reviews')
         
-        # --- PERBAIKAN UTAMA DI SINI ---
-        # Kita suruh server menjawab "OK" jika ada yang tanya OPTIONS di route analyze-review
+        # --- MENANGANI PREFLIGHT (OPTIONS) ---
+        # Ini mencegah error 404 saat browser cek izin
         config.add_view(handle_options_request, route_name='analyze_review', request_method='OPTIONS')
-        # -------------------------------
+        # -------------------------------------
         
         # Setup Database Session
         def add_db(request):

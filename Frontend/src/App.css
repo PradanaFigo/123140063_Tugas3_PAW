@@ -1,161 +1,212 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
-/* --- 1. Background Gradient Mewah --- */
+/* --- 1. Background Dark Mode Premium --- */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Outfit', sans-serif;
-  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); /* Fresh Blue-Green */
-  /* Opsi lain: background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); (Ungu) */
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; /* Dark Slate */
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
+  color: #e2e8f0;
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* --- 2. Dashboard Container (Kaca Besar) --- */
+/* --- 2. Dashboard Container (Dark Glass) --- */
 .dashboard-container {
-  background: rgba(255, 255, 255, 0.95);
-  width: 90%;
-  max-width: 1200px; /* Jauh lebih lebar */
-  height: 85vh;
-  border-radius: 24px;
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  background: rgba(30, 41, 59, 0.7); /* Semi-transparent dark */
+  backdrop-filter: blur(12px);
+  width: 95%;
+  max-width: 1400px;
+  height: 90vh;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
   display: flex;
   overflow: hidden;
-  position: relative;
 }
 
-/* --- 3. Kolom Kiri (Sidebar / Form) --- */
+/* --- 3. Sidebar (Form Area) --- */
 .sidebar {
-  width: 350px;
-  background: #ffffff;
-  border-right: 1px solid #eaeaea;
-  padding: 30px;
+  width: 400px;
+  background: rgba(15, 23, 42, 0.6);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  flex-shrink: 0;
   z-index: 2;
 }
 
 .logo-area {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 20px;
 }
 
 .logo-area h1 {
   font-size: 1.5rem;
-  font-weight: 700;
-  background: linear-gradient(to right, #00c6fb, #005bea);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  background: linear-gradient(to right, #60a5fa, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
-}
-
-.logo-area p {
-  font-size: 0.85rem;
-  color: #888;
-  margin-top: 5px;
+  text-transform: uppercase;
 }
 
 .form-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
 }
 
 .input-label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #444;
-  margin-bottom: 8px;
+  color: #94a3b8; /* Muted text */
+  margin-bottom: 10px;
   display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .styled-input {
   width: 100%;
-  padding: 15px;
-  background: #f8f9fc;
-  border: 2px solid transparent;
-  border-radius: 12px;
+  padding: 16px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  color: white;
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 1rem;
   transition: all 0.3s;
   box-sizing: border-box;
 }
 
 .styled-input:focus {
-  background: #fff;
-  border-color: #00c6fb;
+  background: #0f172a;
+  border-color: #3b82f6;
   outline: none;
-  box-shadow: 0 0 0 4px rgba(0, 198, 251, 0.1);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+.styled-input::placeholder {
+  color: #475569;
 }
 
 textarea.styled-input {
-  min-height: 120px;
+  min-height: 140px;
   resize: none;
 }
 
 .btn-submit {
   width: 100%;
-  padding: 16px;
-  border-radius: 12px;
+  padding: 18px;
+  border-radius: 8px;
   border: none;
-  background: linear-gradient(to right, #00c6fb, #005bea);
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: white;
   font-weight: 700;
   font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  margin-top: 10px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
-.btn-submit:hover {
+.btn-submit:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 91, 234, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4);
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 }
 
-/* --- 4. Kolom Kanan (Hasil / Main Content) --- */
+.btn-submit:disabled {
+  background: #475569;
+  cursor: not-allowed;
+}
+
+/* --- 4. Main Content (Results) --- */
 .main-content {
   flex: 1;
-  background: #fdfdfd;
+  background: rgba(15, 23, 42, 0.3);
   padding: 40px;
   overflow-y: auto;
-  position: relative;
 }
 
-/* Header kecil di kanan */
+/* Scrollbar Customization (Dark) */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+.main-content::-webkit-scrollbar-track {
+  background: #1e293b; 
+}
+.main-content::-webkit-scrollbar-thumb {
+  background: #475569; 
+  border-radius: 4px;
+}
+.main-content::-webkit-scrollbar-thumb:hover {
+  background: #64748b; 
+}
+
 .content-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 20px;
 }
 
 .content-header h2 {
-  font-size: 1.5rem;
-  color: #333;
+  font-size: 1.8rem;
+  color: white;
   margin: 0;
+  font-weight: 700;
 }
 
 .review-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: 25px;
 }
 
-/* Card Hasil Review */
+/* Card Hasil Review (Tech Card) */
 .result-card {
-  background: white;
-  border-radius: 16px;
+  background: #1e293b;
+  border-radius: 12px;
   padding: 25px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  border: 1px solid #f0f0f0;
+  border: 1px solid #334155;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Garis aksen di atas kartu */
+.result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: #334155;
+  transition: background 0.3s;
 }
 
 .result-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border-color: #475569;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.result-card:hover::before {
+  background: #3b82f6; /* Blue glow on hover */
 }
 
 .card-top {
@@ -163,49 +214,57 @@ textarea.styled-input {
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .card-top h3 {
   margin: 0;
-  font-size: 1.1rem;
-  color: #1a1a1a;
+  font-size: 1.2rem;
+  color: #f1f5f9;
+  font-weight: 600;
 }
 
 .badge {
   padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 700;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-.badge-pos { background: #dcfce7; color: #166534; }
-.badge-neg { background: #fee2e2; color: #991b1b; }
-.badge-neu { background: #f3f4f6; color: #374151; }
+/* Warna Badge lebih "Neon" */
+.badge-pos { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #059669; }
+.badge-neg { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #b91c1c; }
+.badge-neu { background: rgba(148, 163, 184, 0.2); color: #cbd5e1; border: 1px solid #475569; }
 
 .review-body {
-  color: #666;
+  color: #cbd5e1;
   font-size: 0.95rem;
   line-height: 1.6;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   font-style: italic;
+  border-left: 2px solid #334155;
+  padding-left: 15px;
 }
 
 .ai-insights {
-  background: #eff6ff;
-  border-radius: 12px;
-  padding: 15px;
+  background: #0f172a;
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #1e293b;
 }
 
 .ai-label {
   display: flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
+  gap: 8px;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #2563eb;
-  margin-bottom: 8px;
+  color: #60a5fa;
+  margin-bottom: 12px;
   text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .ai-insights ul {
@@ -215,6 +274,6 @@ textarea.styled-input {
 
 .ai-insights li {
   font-size: 0.9rem;
-  color: #1e293b;
-  margin-bottom: 5px;
+  color: #94a3b8;
+  margin-bottom: 8px;
 }
