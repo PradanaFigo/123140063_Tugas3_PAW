@@ -63,6 +63,8 @@ npm run dev
 HF_TOKEN = "paste_token_huggingface_disini"
 GEMINI_API_KEY = "paste_key_google_gemini_disini"
 
+## 🔌 API Documentation
+
 Backend aplikasi ini berjalan di `http://localhost:6543` dan menyediakan endpoint berikut:
 
 ### 📋 Daftar Endpoint
