@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+/* --- 1. Background Gradient Mewah --- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', sans-serif;
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%); /* Fresh Blue-Green */
+  /* Opsi lain: background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); (Ungu) */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- 2. Dashboard Container (Kaca Besar) --- */
+.dashboard-container {
+  background: rgba(255, 255, 255, 0.95);
+  width: 90%;
+  max-width: 1200px; /* Jauh lebih lebar */
+  height: 85vh;
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* --- 3. Kolom Kiri (Sidebar / Form) --- */
+.sidebar {
+  width: 350px;
+  background: #ffffff;
+  border-right: 1px solid #eaeaea;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  z-index: 2;
+}
+
+.logo-area {
+  margin-bottom: 30px;
+}
+
+.logo-area h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #00c6fb, #005bea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.logo-area p {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 5px;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.styled-input {
+  width: 100%;
+  padding: 15px;
+  background: #f8f9fc;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  box-sizing: border-box;
+}
+
+.styled-input:focus {
+  background: #fff;
+  border-color: #00c6fb;
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 198, 251, 0.1);
+}
+
+textarea.styled-input {
+  min-height: 120px;
+  resize: none;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 16px;
+  border-radius: 12px;
+  border: none;
+  background: linear-gradient(to right, #00c6fb, #005bea);
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 91, 234, 0.3);
+}
+
+/* --- 4. Kolom Kanan (Hasil / Main Content) --- */
+.main-content {
+  flex: 1;
+  background: #fdfdfd;
+  padding: 40px;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* Header kecil di kanan */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.content-header h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin: 0;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+/* Card Hasil Review */
+.result-card {
+  background: white;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.card-top h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #1a1a1a;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.badge-pos { background: #dcfce7; color: #166534; }
+.badge-neg { background: #fee2e2; color: #991b1b; }
+.badge-neu { background: #f3f4f6; color: #374151; }
+
+.review-body {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.ai-insights {
+  background: #eff6ff;
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.ai-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.ai-insights ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.ai-insights li {
+  font-size: 0.9rem;
+  color: #1e293b;
+  margin-bottom: 5px;
+}
