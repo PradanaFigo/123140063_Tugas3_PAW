@@ -58,21 +58,12 @@ Jalankan Server:Bashpython app.py
 ✅ Server akan berjalan di: http://localhost:65433. Setup Frontend (Client)Buka terminal baru, masuk ke folder Frontend:Bashcd Frontend
 Install library & jalankan aplikasi:Bashnpm install
 npm run dev
-✅ Akses aplikasi di: http://localhost:5173⚙️ Konfigurasi API Key (Opsional)Agar fitur AI berjalan dengan data asli (bukan Mock/Dummy), edit file Backend/views.py:Python# Backend/views.py
-
-HF_TOKEN = "paste_token_huggingface_disini"
-GEMINI_API_KEY = "paste_key_google_gemini_disini"
+✅ Akses aplikasi di: http://localhost:5173⚙️
 
 ## 🔌 API Documentation
 
-Backend aplikasi ini berjalan di `http://localhost:6543` dan menyediakan endpoint berikut:
-
-### 📋 Daftar Endpoint
-
 | Method | Endpoint | Deskripsi |
 | :--- | :--- | :--- |
-| `POST` | **/api/analyze-review** | Menganalisis review baru. Menerima input JSON, memproses dengan AI, dan menyimpan ke Database. |
-| `GET` | **/api/reviews** | Mengambil seluruh riwayat analisis dari database, diurutkan dari yang terbaru ke terlama. |
-| `OPTIONS`| **/api/analyze-review** | Menangani *CORS Preflight Request* agar browser mengizinkan pengiriman data antar-domain. |
-
----
+| `POST` | `/api/analyze-review` | Kirim data `{product_name, review_text}` untuk dianalisis AI. |
+| `GET` | `/api/reviews` | Ambil semua riwayat review dari database. |
+| `OPTIONS` | `/api/analyze-review` | Cek izin akses (CORS). |
