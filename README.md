@@ -59,6 +59,7 @@ Jalankan Server:Bashpython app.py
 Install library & jalankan aplikasi:Bashnpm install
 npm run dev
 ✅ Akses aplikasi di: http://localhost:5173⚙️
+---
 
 ## 🔌 API Documentation
 
@@ -67,3 +68,4 @@ npm run dev
 | `POST` | `/api/analyze-review` | Kirim data `{product_name, review_text}` untuk dianalisis AI. |
 | `GET` | `/api/reviews` | Ambil semua riwayat review dari database. |
 | `OPTIONS` | `/api/analyze-review` | Cek izin akses (CORS). |
+---
